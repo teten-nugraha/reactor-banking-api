@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: reactor-banking
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/webflux-banking
+    username: postgres
+    password: postgres
+
+logging:
+  level:
+    id:
+      ten:
+        springreactorbanking: DEBUG
+    org:
+      springframework:
+        r2dbc: DEBUG
+
+server:
+  port: 9090
