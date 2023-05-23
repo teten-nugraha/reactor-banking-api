@@ -34,5 +34,13 @@ public class BankController {
         return bankService.deposit(src, amt);
     }
 
+    @PostMapping("/withdraw")
+    public Mono<Void> withdraw(
+            @RequestParam("src") String src,
+            @RequestParam("amt") BigDecimal amt
+    ) {
+        return bankService.withdraw(src, amt);
+    }
+
 
 }
