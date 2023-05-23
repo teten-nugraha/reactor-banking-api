@@ -136,8 +136,8 @@ public class BankServiceImpl implements BankService {
     }
 
     @Override
-    public Mono<Void> check(String source) {
-        return null;
+    public Mono<Account> check(String source) {
+        return checkAccountExist(source);
     }
 
     @Override

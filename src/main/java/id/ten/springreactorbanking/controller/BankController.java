@@ -1,7 +1,9 @@
 package id.ten.springreactorbanking.controller;
 
+import id.ten.springreactorbanking.models.Account;
 import id.ten.springreactorbanking.service.BankService;
 import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,6 +42,13 @@ public class BankController {
             @RequestParam("amt") BigDecimal amt
     ) {
         return bankService.withdraw(src, amt);
+    }
+
+    @GetMapping("/check-balance")
+    public Mono<Account> withdraw(
+            @RequestParam("src") String src
+    ) {
+        return bankService.check(src);
     }
 
 
