@@ -1,7 +1,7 @@
 package id.ten.springreactorbanking.controller;
 
 import id.ten.springreactorbanking.service.BankService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,9 +12,9 @@ import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/api")
+@AllArgsConstructor
 public class BankController {
 
-    @Autowired
     private BankService bankService;
 
     @PostMapping("/transfer")
@@ -24,6 +24,14 @@ public class BankController {
             @RequestParam("amt") BigDecimal amt
     ) {
         return bankService.transfer(src, dst, amt);
+    }
+
+    @PostMapping("/deposit")
+    public Mono<Void> deposit(
+            @RequestParam("src") String src,
+            @RequestParam("amt") BigDecimal amt
+    ) {
+        return bankService.deposit(src, amt);
     }
 
 
