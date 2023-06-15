@@ -5,6 +5,10 @@ spring:
     url: r2dbc:postgresql://localhost:5432/webflux-banking
     username: postgres
     password: postgres
+  flyway:
+    url: jdbc:postgresql://localhost:5432/webflux-banking
+    user: postgres
+    password: postgres
 
 logging:
   level:
